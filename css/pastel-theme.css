@@ -1,0 +1,290 @@
+/* ==========================================================================
+   A LITTLE WORLD FOR KHUSHI 💜
+   Pastel Aesthetic Theme: Pink, Lavender, Baby Blue, Cream & Peach
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pastel-pink: #FCE8EF;
+  --pastel-pink-dark: #F5BCCB;
+  --pastel-pink-soft: #FFF0F5;
+  --pastel-lavender: #E9DDFB;
+  --pastel-lavender-dark: #CBB4F7;
+  --pastel-lavender-soft: #F4EEFD;
+  --pastel-baby-blue: #E2F0FD;
+  --pastel-baby-blue-dark: #BEDEFB;
+  --pastel-cream: #FFFDF8;
+  --pastel-cream-card: #FCF9F2;
+  --pastel-peach: #FFE5D9;
+  --pastel-peach-dark: #FDC7B4;
+  --pastel-rose: #E8A6B8;
+  --deep-plum: #493653;
+  --plum-light: #70557E;
+  --plum-muted: #957F9F;
+  --white: #FFFFFF;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --shadow-soft: 0 10px 30px rgba(73, 54, 83, 0.08);
+  --shadow-glow: 0 0 25px rgba(232, 166, 184, 0.35);
+  --shadow-lavender: 0 8px 25px rgba(203, 180, 247, 0.35);
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-full: 9999px;
+  
+  --font-script: 'Pacifico', cursive;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-bounce: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Base Body Pastel Gradient */
+body {
+  font-family: var(--font-sans);
+  color: var(--deep-plum);
+  background: linear-gradient(135deg, #FCE8EF 0%, #E9DDFB 35%, #E2F0FD 70%, #FFE5D9 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   SHARED FLOATING NAVIGATION BAR FOR ALL PAGES
+   ========================================================================== */
+.khushi-nav-bar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  box-shadow: 0 8px 25px rgba(73, 54, 83, 0.1);
+  max-width: 95vw;
+}
+
+.khushi-nav-bar a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--deep-plum);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.khushi-nav-bar a:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--pastel-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 166, 184, 0.25);
+}
+
+.khushi-nav-bar a.active {
+  background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-lavender) 100%);
+  color: var(--deep-plum);
+  box-shadow: 0 4px 14px rgba(203, 180, 247, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.khushi-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--plum-light);
+  box-shadow: 0 3px 10px rgba(73, 54, 83, 0.05);
+}
+
+/* Cute Floating Elements Layer */
+.ambient-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ambient-item {
+  position: absolute;
+  user-select: none;
+  opacity: 0.75;
+  filter: drop-shadow(0 2px 5px rgba(232, 166, 184, 0.25));
+  animation: floatAmbient 12s infinite ease-in-out;
+}
+
+@keyframes floatAmbient {
+  0% {
+    transform: translateY(105vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(40px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Beautiful Pastel Button Style */
+.btn-pastel-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 34px;
+  background: linear-gradient(135deg, #F5BCCB 0%, #D5C0F6 50%, #C2E2FC 100%);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(203, 180, 247, 0.45);
+  transition: var(--transition-bounce);
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(73, 54, 83, 0.2);
+}
+
+.btn-pastel-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(203, 180, 247, 0.6);
+  background: linear-gradient(135deg, #f0adc0 0%, #caaef4 50%, #b2d7fa 100%);
+}
+
+.btn-pastel-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--deep-plum);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-pastel-secondary:hover {
+  background: #FFFFFF;
+  color: var(--pastel-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(73, 54, 83, 0.12);
+}
+
+/* Shared Audio Controls Pill */
+.khushi-audio-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 25px rgba(73, 54, 83, 0.12);
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+.khushi-audio-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.khushi-audio-btn {
+  background: linear-gradient(135deg, var(--pastel-pink-dark), var(--pastel-lavender-dark));
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(73, 54, 83, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.khushi-audio-btn:hover {
+  transform: scale(1.1);
+}
+
+.khushi-audio-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--deep-plum);
+}
+
+/* Responsive Navigation Bar for Mobile */
+@media (max-width: 768px) {
+  .khushi-nav-bar {
+    top: auto;
+    bottom: 14px;
+    padding: 6px 10px;
+    gap: 4px;
+  }
+  
+  .khushi-nav-bar a {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+  
+  .khushi-nav-bar a span.nav-text {
+    display: none;
+  }
+  
+  .khushi-audio-widget {
+    bottom: 65px;
+    right: 14px;
+    padding: 6px 10px;
+  }
+  
+  .khushi-audio-label {
+    display: none;
+  }
+}
